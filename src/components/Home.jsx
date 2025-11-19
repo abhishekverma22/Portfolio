@@ -109,7 +109,7 @@ const Home = () => {
                 View My Projects
               </a>
               <a
-                href="/ABHISHEK_VERMA.pdf"
+                href="/Abhishek_verma_resume.pdf"
                 download="Abhishek_Verma_Resume.pdf"
                 className="px-8 py-4 border-2 border-gray-500 text-gray-300 font-bold rounded-full hover:bg-white/10 hover:text-white hover:border-gray-400 transition-all duration-300"
               >
@@ -180,7 +180,7 @@ const Home = () => {
                 View My Projects
               </a>
               <a
-                href="/ABHISHEK_VERMA.pdf"
+                href="/Abhishek_verma_resume.pdf"
                 download="Abhishek_Verma_Resume.pdf"
                 className="px-8 py-4 border-2 border-gray-500 text-gray-300 font-bold text-lg rounded-full hover:bg-white/10 hover:text-white hover:border-gray-400 transition-all duration-300"
               >

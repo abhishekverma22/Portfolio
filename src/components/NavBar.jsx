@@ -91,7 +91,7 @@ const Navbar = ({ scrollToSection }) => {
 
             {/* Desktop Resume */}
             <motion.a
-              href="/ABHISHEK_VERMA.pdf"
+              href="/Abhishek_verma_resume.pdf"
               download="Abhishek_Verma_Resume.pdf"
               className="group flex items-center gap-2 px-4 py-2 sm:px-5 sm:py-3 bg-yellow-400/10 border border-yellow-400/30 rounded-full text-yellow-400 text-sm sm:text-base font-medium hover:bg-yellow-400 hover:text-black transition-all duration-300 shadow-lg"
               whileHover={{ scale: 1.05 }}
@@ -156,7 +156,7 @@ const Navbar = ({ scrollToSection }) => {
 
                 {/* Resume Button */}
                 <a
-                  href="/ABHISHEK_VERMA.pdf"
+                  href="/Abhishek_verma_resume.pdf"
                   download="Abhishek_Verma_Resume.pdf"
                   className="flex items-center justify-center gap-3 w-full px-8 py-4 bg-linear-to-r from-yellow-400 to-yellow-500 text-black font-bold text-lg rounded-2xl shadow-2xl hover:shadow-yellow-400/50 transition-all duration-300 hover:scale-105 active:scale-95 cursor-pointer"
                   onClick={() => setIsOpen(false)}
