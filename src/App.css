@@ -1,0 +1,25 @@
+@keyframes balloonFloat {
+  0% {
+    transform: translateY(0px) translateX(0px);
+    opacity: 0;
+  }
+  20% {
+    opacity: 0.4;
+  }
+  50% {
+    transform: translateY(-200px) translateX(40px);
+    opacity: 0.3;
+  }
+  100% {
+    transform: translateY(-800px) translateX(-20px);
+    opacity: 0;
+  }
+}
+
+.animate-balloon {
+  animation-name: balloonFloat;
+  animation-timing-function: ease-in-out;
+  animation-iteration-count: infinite;
+}
+
+
