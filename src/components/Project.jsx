@@ -1,10 +1,52 @@
 import React, { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import project1Img from "../assets/profile.jpg";
+import portfolio from "../assets/portfolio.png";
+import citiSaver from "../assets/CITI-SAVER.png";
+import fluencymate from "../assets/fluencymate.png";
 
 const projects = [
   {
     id: 1,
+    title: "FluencyMate - Smart language-learning platform",
+    description:
+      "FluencyMate is a smart language-learning app that helps users improve vocabulary, practice speaking in real time, and build fluency through quizzes and guided exercises.",
+    fullDescription:
+      "FluencyMate is an interactive language-learning app designed to help users improve their speaking, vocabulary, and overall communication skills. The platform offers a combination of engaging quizzes, real-time speaking practice, and personalized feedback to make learning easier and more effective. With guided exercises and practice modes, users can build fluency, track progress, and strengthen their confidence in any language—all in one intuitive app.",
+    tech: ["HTML", "CSS", "JavaScript", "FireBase"],
+    features: [
+      "Interactive quizzes to build vocabulary and grammar",
+      "Speaking practice with instant evaluation",
+      "Personalized learning paths",
+      "Progress tracking and daily practice goals",
+      "Simple, user-friendly interface for learners of all levels",
+      "Responsive UI",
+    ],
+    liveDemo: "https://fluencymate.netlify.app/",
+    github: "https://github.com/abhishekverma22/Language-learning-system",
+    image: fluencymate,
+  },
+  {
+    id: 2,
+    title: "CITI SAVER ",
+    description:
+      "CitiSave is a citizen-focused web and mobile application designed to streamline the reporting and resolution of civic issues in local neighborhoods",
+    fullDescription:
+      "CitiSave is a citizen-focused web and mobile application designed to streamline the reporting and resolution of civic issues in local neighborhoods. The platform empowers residents to easily log complaints about problems such as potholes, garbage accumulation, streetlight failures, and more. Users can attach photos, specify locations using Google Maps integration, and track the status of their complaints in real time \n Authorities and municipal staff have access to an admin dashboard, where they can efficiently manage, update, and resolve reported issues. Meanwhile, a public-facing dashboard highlights resolved complaints, promoting transparency and accountability in local governance. CitiSave bridges the gap between citizens and authorities, ensuring faster response times, better civic management, and a cleaner, safer community.",
+    tech: ["React", "TailwindCSS", "Node.js", "Express", "MongoDB"],
+    features: [
+      "Submit complaints with real-time photo and location capture.",
+      "Track issue status in real time.",
+      "Admin panel to manage and update complaints.",
+      "Public dashboard showcasing resolved issues.",
+      "Google Maps integration for precise location reporting.",
+    ],
+
+    liveDemo: "https://my-city-jet.vercel.app/",
+    github: "https://github.com/SumitKumar8252/My-City",
+    image: citiSaver,
+  },
+  {
+    id: 3,
     title: "Portfolio Website",
     description:
       "A sleek personal portfolio with smooth animations, glassmorphism, floating bubbles, and interactive hover effects using React and Framer Motion.",
@@ -18,47 +60,9 @@ const projects = [
       "Floating Bubbles",
       "Responsive Design",
     ],
-    liveDemo: "https://your-portfolio.vercel.app",
-    github: "https://github.com/yourusername/portfolio",
-    image: project1Img,
-  },
-  {
-    id: 2,
-    title: "E-Commerce Platform",
-    description:
-      "Full-stack online store with user authentication, cart system, payment integration, and admin dashboard.",
-    fullDescription:
-      "A complete MERN stack e-commerce application featuring secure user authentication, product filtering, shopping cart with persistence, Stripe/PayPal payment simulation, order history, and a fully functional admin panel to manage products and orders.",
-    tech: ["React", "Node.js", "Express", "MongoDB", "JWT", "Redux"],
-    features: [
-      "User Auth",
-      "Cart System",
-      "Payment Gateway",
-      "Admin Panel",
-      "Responsive UI",
-    ],
-    liveDemo: "https://ecommerce-demo.vercel.app",
-    github: "https://github.com/yourusername/ecommerce",
-    image: project1Img,
-  },
-  {
-    id: 3,
-    title: "Real-Time Chat App",
-    description:
-      "Live messaging application with private chats, group channels, typing indicators, and online status.",
-    fullDescription:
-      "A real-time chat platform built with Socket.io featuring instant messaging, private and group conversations, message seen status, typing indicators, user online/offline status, and beautiful responsive UI with dark mode support.",
-    tech: ["React", "Socket.io", "Node.js", "Express", "MongoDB"],
-    features: [
-      "Real-time Messaging",
-      "Typing Indicators",
-      "Online Status",
-      "Private/Group Chat",
-      "Message History",
-    ],
-    liveDemo: "https://chatapp-demo.vercel.app",
-    github: "https://github.com/yourusername/chat-app",
-    image: project1Img,
+    liveDemo: "https://abhishek-verm-portfolio.vercel.app",
+    github: "https://github.com/abhishekverma22/Portfolio",
+    image: portfolio,
   },
 ];
 const Project = () => {
@@ -223,11 +227,11 @@ const Project = () => {
 
               <div className="grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-6">
                 {/* Image */}
-                <div className="h-48 sm:h-64 md:h-full overflow-hidden rounded-xl">
+                <div className="h-auto sm:h-64 md:h-full overflow-hidden rounded-xl flex justify-center items-center">
                   <img
                     src={selectedProject.image}
                     alt={selectedProject.title}
-                    className="w-full h-full object-cover"
+                    className="w-full h-full object-contain"
                   />
                 </div>
 
@@ -280,7 +284,7 @@ const Project = () => {
                       href={selectedProject.liveDemo}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="flex-1 py-2 sm:py-3 text-sm sm:text-base md:text-lg bg-blue-600 hover:bg-blue-700 text-white font-bold text-center rounded-xl shadow-md hover:shadow-lg transition-all duration-300"
+                      className="flex-1 py-2 sm:py-3 text-sm sm:text-base md:text-lg bg-white/20 border-2 border-white/40 text-white font-bold text-center rounded-xl shadow-md hover:shadow-lg transition-all duration-300"
                     >
                       View Live Demo
                     </a>
