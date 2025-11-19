@@ -25,7 +25,7 @@ const About = () => {
 
   const education = [
     {
-      degree: "Full-Stack Web Development",
+      degree: "Software Development",
       school: "Masai School, Bengaluru",
       year: "Dec 2024 – Jan 2026 (Ongoing)",
     },
