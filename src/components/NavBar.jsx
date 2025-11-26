@@ -7,10 +7,15 @@ const Navbar = ({ scrollToSection }) => {
   const [activeSection, setActiveSection] = useState("home");
 
   const navItems = [
-    { name: "Home", section: "home" },
-    { name: "About", section: "about" },
-    { name: "Projects", section: "projects" },
-    { name: "Contact", section: "contact" },
+    { name: "Home", section: "home", type: "scroll" },
+    { name: "About", section: "about", type: "scroll" },
+    { name: "Projects", section: "projects", type: "scroll" },
+    { name: "Contact", section: "contact", type: "scroll" },
+    {
+      name: "Resume",
+      type: "external",
+      link: "https://drive.google.com/file/d/1FoIUC4ewNl_3WN96QMl-9VzNMXqF8vZs/view?usp=sharing",
+    },
   ];
 
   // Scrollspy effect: detect active section based on scroll position
@@ -66,43 +71,37 @@ const Navbar = ({ scrollToSection }) => {
           {/* Desktop Navigation */}
           <div className="hidden lg:flex items-center gap-10">
             <div className="flex items-center gap-6 relative">
-              {navItems.map((item) => (
-                <button
-                  key={item.section}
-                  onClick={() => handleNavClick(item.section)}
-                  className={`relative text-xs sm:text-sm lg:text-base cursor-pointer font-medium text-gray-300 hover:text-white transition-all duration-300 px-1`}
-                >
-                  {item.name}
-                  {/* Active Bar */}
-                  {activeSection === item.section && (
-                    <motion.span
-                      layoutId="nav-bar"
-                      className="absolute left-0 bottom-0 w-full h-0.5 bg-yellow-400 rounded-full"
-                      transition={{
-                        type: "spring",
-                        stiffness: 500,
-                        damping: 30,
-                      }}
-                    />
-                  )}
-                </button>
-              ))}
+              {navItems.map((item) =>
+                item.type === "scroll" ? (
+                  <button
+                    key={item.name}
+                    onClick={() => handleNavClick(item.section)}
+                    className={`relative text-xs sm:text-sm lg:text-base cursor-pointer font-medium text-gray-300 hover:text-white transition-all duration-300 px-1`}
+                  >
+                    {item.name}
+                    {activeSection === item.section && (
+                      <motion.span
+                        layoutId="nav-bar"
+                        className="absolute left-0 bottom-0 w-full h-0.5 bg-yellow-400 rounded-full"
+                        transition={{
+                          type: "spring",
+                          stiffness: 500,
+                          damping: 30,
+                        }}
+                      />
+                    )}
+                  </button>
+                ) : (
+                  <button
+                    key={item.name}
+                    onClick={() => window.open(item.link, "_blank")}
+                    className="relative text-xs sm:text-sm lg:text-base cursor-pointer font-medium text-gray-300 hover:text-white transition-all duration-300 px-1"
+                  >
+                    {item.name}
+                  </button>
+                )
+              )}
             </div>
-
-            {/* Desktop Resume */}
-            <motion.a
-              href="/Abhishek_verma_resume.pdf"
-              download="Abhishek_Verma_Resume.pdf"
-              className="group flex items-center gap-2 px-4 py-2 sm:px-5 sm:py-3 bg-yellow-400/10 border border-yellow-400/30 rounded-full text-yellow-400 text-sm sm:text-base font-medium hover:bg-yellow-400 hover:text-black transition-all duration-300 shadow-lg"
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
-            >
-              <Download
-                size={16}
-                className="group-hover:rotate-12 transition-transform"
-              />
-              Resume
-            </motion.a>
           </div>
 
           {/* Mobile Toggle */}
@@ -137,33 +136,34 @@ const Navbar = ({ scrollToSection }) => {
               className="fixed inset-y-0 right-0 w-full max-w-sm bg-linear-to-b from-black via-gray-900 to-black border-l border-white/10 shadow-2xl z-50 lg:hidden flex flex-col"
             >
               <div className="flex-1 flex flex-col justify-center px-6 py-16 sm:px-8 space-y-6 ">
-                {navItems.map((item, index) => (
-                  <motion.button
-                    key={item.section}
-                    initial={{ opacity: 0, x: 50 }}
-                    animate={{ opacity: 1, x: 0 }}
-                    transition={{ delay: index * 0.1 }}
-                    onClick={() => handleNavClick(item.section)}
-                    className={`block w-full text-left text-2xl sm:text-3xl font-bold  ${
-                      activeSection === item.section
-                        ? "text-yellow-400"
-                        : "text-gray-300"
-                    } hover:text-white transition-all duration-300 py-3 border-b border-white/10 last:border-0`}
-                  >
-                    {item.name}
-                  </motion.button>
-                ))}
-
-                {/* Resume Button */}
-                <a
-                  href="/Abhishek_verma_resume.pdf"
-                  download="Abhishek_Verma_Resume.pdf"
-                  className="flex items-center justify-center gap-3 w-full px-8 py-4 bg-linear-to-r from-yellow-400 to-yellow-500 text-black font-bold text-lg rounded-2xl shadow-2xl hover:shadow-yellow-400/50 transition-all duration-300 hover:scale-105 active:scale-95 cursor-pointer"
-                  onClick={() => setIsOpen(false)}
-                >
-                  <Download size={20} />
-                  Download Resume
-                </a>
+                {navItems.map((item, index) =>
+                  item.type === "scroll" ? (
+                    <motion.button
+                      key={item.name}
+                      initial={{ opacity: 0, x: 50 }}
+                      animate={{ opacity: 1, x: 0 }}
+                      transition={{ delay: index * 0.1 }}
+                      onClick={() => handleNavClick(item.section)}
+                      className="block w-full text-left text-2xl sm:text-3xl font-bold text-gray-300 hover:text-white transition-all duration-300 py-3 border-b border-white/10"
+                    >
+                      {item.name}
+                    </motion.button>
+                  ) : (
+                    <motion.button
+                      key={item.name}
+                      initial={{ opacity: 0, x: 50 }}
+                      animate={{ opacity: 1, x: 0 }}
+                      transition={{ delay: index * 0.1 }}
+                      onClick={() => {
+                        setIsOpen(false);
+                        window.open(item.link, "_blank");
+                      }}
+                      className="block w-full text-left text-2xl sm:text-3xl font-bold text-gray-300 hover:text-white transition-all duration-300 py-3 border-b border-white/10"
+                    >
+                      {item.name}
+                    </motion.button>
+                  )
+                )}
               </div>
 
               {/* Close Button */}

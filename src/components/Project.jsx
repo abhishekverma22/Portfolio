@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import portfolio from "../assets/portfolio.png";
 import citiSaver from "../assets/CITI-SAVER.png";
 import fluencymate from "../assets/fluencymate.png";
 
@@ -44,25 +43,6 @@ const projects = [
     liveDemo: "https://my-city-jet.vercel.app/",
     github: "https://github.com/SumitKumar8252/My-City",
     image: citiSaver,
-  },
-  {
-    id: 3,
-    title: "Portfolio Website",
-    description:
-      "A sleek personal portfolio with smooth animations, glassmorphism, floating bubbles, and interactive hover effects using React and Framer Motion.",
-    fullDescription:
-      "This portfolio features a modern dark theme with floating particle background, glassmorphic cards, smooth scroll navigation, interactive project previews with image swipe, and a fully functional contact form. Built with React, Tailwind CSS, Framer Motion, and Lucide icons for a premium developer experience.",
-    tech: ["React", "Tailwind CSS", "Framer Motion", "Lucide Icons"],
-    features: [
-      "Smooth Scroll",
-      "Glassmorphism",
-      "Image Hover Effects",
-      "Floating Bubbles",
-      "Responsive Design",
-    ],
-    liveDemo: "https://abhishek-verm-portfolio.vercel.app",
-    github: "https://github.com/abhishekverma22/Portfolio",
-    image: portfolio,
   },
 ];
 const Project = () => {
@@ -114,7 +94,7 @@ const Project = () => {
           </motion.div>
 
           {/* Project Grid */}
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8 lg:gap-10">
+          <div className="grid gap-6 sm:gap-8 lg:gap-10 grid-cols-[repeat(auto-fit,minmax(300px,1fr))]">
             {projects.map((project, index) => (
               <motion.div
                 key={project.id}
@@ -162,15 +142,25 @@ const Project = () => {
                     </p>
 
                     {/* Live Demo */}
-                    <div className="mt-4 sm:mt-6">
+                    {/* Action Buttons */}
+                    <div className="mt-4 sm:mt-6 flex gap-3 flex-wrap">
                       <a
                         href={project.liveDemo}
                         target="_blank"
                         rel="noopener noreferrer"
                         onClick={(e) => e.stopPropagation()}
-                        className="inline-block px-4 sm:px-6 py-2 sm:py-3 text-xs sm:text-sm md:text-base bg-linear-to-r from-gray-700 to-gray-800 text-white font-medium rounded-xl hover:shadow-md transition-all duration-300"
+                        className="flex-1 px-4 sm:px-6 py-2 sm:py-3 text-xs sm:text-sm md:text-base bg-linear-to-r from-gray-700 to-gray-800 text-white font-medium rounded-xl hover:shadow-md transition-all duration-300 text-center"
                       >
                         Live Demo
+                      </a>
+                      <a
+                        href={project.github}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        onClick={(e) => e.stopPropagation()}
+                        className="flex-1 px-4 sm:px-6 py-2 sm:py-3 text-xs sm:text-sm md:text-base border-2 border-gray-500 text-white font-medium rounded-xl hover:bg-white/10 hover:border-gray-400 transition-all duration-300 text-center"
+                      >
+                        View Code
                       </a>
                     </div>
                   </div>

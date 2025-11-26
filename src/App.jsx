@@ -60,11 +60,19 @@ const App = () => {
 
       <style jsx>{`
         @keyframes balloon {
-          0% { transform: translateY(0) translateX(0) rotate(0deg); opacity: 0; }
-          10% { opacity: 0.4; }
-          90% { opacity: 0.3; }
+          0% {
+            transform: translateY(0) translateX(0) rotate(0deg);
+            opacity: 0;
+          }
+          10% {
+            opacity: 0.4;
+          }
+          90% {
+            opacity: 0.3;
+          }
           100% {
-            transform: translateY(-110vh) translateX(var(--drift, 100px)) rotate(360deg);
+            transform: translateY(-110vh) translateX(var(--drift, 100px))
+              rotate(360deg);
             opacity: 0;
           }
         }
@@ -73,12 +81,20 @@ const App = () => {
       {/* MAIN CONTENT */}
       <div className="relative min-h-screen">
         <Navbar scrollToSection={scrollToSection} />
-  
-        <div className="pt-20 md:pt-24">
-          <section id="home"><Home /></section>
-          <section id="about"><About /></section>
-          <section id="projects"><Project /></section>
-          <section id="contact"><Contact /></section>
+
+        <div className="">
+          <section id="home">
+            <Home />
+          </section>
+          <section id="about">
+            <About />
+          </section>
+          <section id="projects">
+            <Project />
+          </section>
+          <section id="contact">
+            <Contact />
+          </section>
         </div>
       </div>
     </>

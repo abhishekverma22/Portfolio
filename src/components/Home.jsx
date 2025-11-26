@@ -37,17 +37,19 @@ const Home = () => {
 
       <div className="relative max-w-7xl mx-auto w-full">
         {/* MOBILE LAYOUT - Image on Top */}
-        <div className="block md:hidden text-center space-y-8">
+        {/* MOBILE LAYOUT - Smaller Image & Text */}
+        <div className="block md:hidden text-center space-y-6 mt-4">
+          {/* Small Image */}
           <motion.div
             initial={{ opacity: 0, scale: 0.8 }}
             whileInView={{ opacity: 1, scale: 1 }}
             viewport={{ once: true }}
-            transition={{ duration: 0.8 }}
+            transition={{ duration: 0.6 }}
             className="mx-auto"
           >
             <div className="relative group inline-block">
-              <div className="absolute -inset-3 sm:-inset-4 bg-linear-to-r from-purple-600/20 to-blue-600/20 rounded-full blur-3xl opacity-60 group-hover:opacity-90 transition duration-700" />
-              <div className="relative w-38 h-48 sm:w-64 sm:h-64 rounded-full overflow-hidden border-4 sm:border-8 border-gray-800 shadow-2xl">
+              <div className="absolute -inset-2 bg-linear-to-r from-purple-600/20 to-blue-600/20 rounded-full blur-xl opacity-60 group-hover:opacity-90 transition duration-700" />
+              <div className="relative w-40 h-50 sm:w-36 sm:h-36 rounded-full overflow-hidden border-4 border-gray-800 shadow-xl">
                 <img
                   src={profileImage}
                   alt="Abhishek Verma"
@@ -57,66 +59,66 @@ const Home = () => {
             </div>
           </motion.div>
 
-          <div className="space-y-5">
-            <motion.p
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.3 }}
-              className="text-gray-400 font-medium text-sm sm:text-base tracking-wider"
-            >
-              Hello, I'm
-            </motion.p>
+          {/* Text Section */}
+          <motion.p
+            initial={{ opacity: 0, y: 15 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.2 }}
+            className="text-gray-400 font-medium text-s tracking-wider"
+          >
+            Hello, I'm
+          </motion.p>
 
-            <motion.h1
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.5 }}
-              className="text-4xl sm:text-5xl font-bold text-white leading-tight"
-            >
-              Abhishek Verma
-            </motion.h1>
+          <motion.h1
+            initial={{ opacity: 0, y: 15 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.35 }}
+            className="text-3xl font-bold tracking-wide text-white"
+          >
+            Abhishek Verma
+          </motion.h1>
 
-            <motion.p
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.7 }}
-              className="text-lg sm:text-xl font-light text-gray-400 italic"
-            >
-              Turning Ideas into Code
-            </motion.p>
+          <motion.p
+            initial={{ opacity: 0, y: 15 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.45 }}
+            className="text-base font-light text-gray-400 italic -mt-4 "
+          >
+            Turning Ideas into Code
+          </motion.p>
 
-            <motion.p
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.9 }}
-              className="text-gray-300 text-sm sm:text-base leading-relaxed max-w-md mx-auto px-4"
-            >
-              Passionate full-stack developer crafting beautiful, responsive,
-              and high-performance web applications with React, Node.js, and
-              modern tools.
-            </motion.p>
+          <motion.p
+            initial={{ opacity: 0, y: 15 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.55 }}
+            className="text-gray-300 text-s leading-relaxed max-w-xs mx-auto px-3"
+          >
+           Passionate full-stack developer building fast, modern, responsive web apps.
+          </motion.p>
 
-            <motion.div
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ delay: 1.1 }}
-              className="flex flex-col gap-4 pt-6"
+          {/* Buttons */}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.65 }}
+            className="flex items-center justify-center gap-3 pt-4"
+          >
+            <a
+              href="#projects"
+              className="px-4 py-2 bg-gray-800 text-white font-medium text-s rounded-full border border-gray-700 shadow-md hover:scale-105 transition duration-300"
             >
-              <a
-                href="#projects"
-                className="px-8 py-4 bg-linear-to-r from-gray-700 to-gray-800 text-white font-bold rounded-full shadow-xl hover:shadow-2xl hover:scale-105 transition-all duration-300 border border-gray-600"
-              >
-                View My Projects
-              </a>
-              <a
-                href="/Abhishek_verma_resume.pdf"
-                download="Abhishek_Verma_Resume.pdf"
-                className="px-8 py-4 border-2 border-gray-500 text-gray-300 font-bold rounded-full hover:bg-white/10 hover:text-white hover:border-gray-400 transition-all duration-300"
-              >
-                Download Resume
-              </a>
-            </motion.div>
-          </div>
+              Projects
+            </a>
+
+            <a
+              href="https://drive.google.com/file/d/1FoIUC4ewNl_3WN96QMl-9VzNMXqF8vZs/view?usp=sharing"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="px-4 py-2 border border-gray-500 text-gray-300 font-medium text-s rounded-full hover:bg-white/10 hover:text-white transition duration-300"
+            >
+              Resume
+            </a>
+          </motion.div>
         </div>
 
         {/* DESKTOP & TABLET - Side by Side */}
@@ -166,25 +168,25 @@ const Home = () => {
               and high-performance web applications with React, Node.js, and
               modern tools.
             </motion.p>
-
             <motion.div
               initial={{ opacity: 0, y: 40 }}
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ delay: 1 }}
-              className="flex gap-6 pt-8"
+              className="flex flex-row gap-6 pt-8"
             >
               <a
                 href="#projects"
-                className="px-8 py-4 bg-linear-to-r from-gray-700 to-gray-800 text-white font-bold text-lg rounded-full shadow-xl hover:shadow-2xl hover:scale-105 transition-all duration-300 border border-gray-600"
+                className="px-6 py-3 bg-linear-to-r from-gray-700 to-gray-800 text-white font-semibold text-lg rounded-full shadow-md hover:shadow-xl hover:scale-105 transition-all duration-300 border border-gray-600"
               >
-                View My Projects
+                View Projects
               </a>
+
               <a
                 href="/Abhishek_verma_resume.pdf"
                 download="Abhishek_Verma_Resume.pdf"
-                className="px-8 py-4 border-2 border-gray-500 text-gray-300 font-bold text-lg rounded-full hover:bg-white/10 hover:text-white hover:border-gray-400 transition-all duration-300"
+                className="px-6 py-3 border-2 border-gray-500 text-gray-300 font-semibold text-lg rounded-full hover:bg-white/10 hover:text-white hover:border-gray-400 transition-all duration-300"
               >
-                Download Resume
+                Resume
               </a>
             </motion.div>
           </motion.div>

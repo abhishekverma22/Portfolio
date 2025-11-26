@@ -1,16 +1,71 @@
-# React + Vite
+# 💫 Abhishek Verma – Personal Portfolio
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Welcome to my personal portfolio! I’m a passionate **full-stack web developer** specializing in the **MERN stack**, dedicated to turning ideas into interactive and efficient digital experiences.
 
-Currently, two official plugins are available:
+---
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## 📧 Contact
 
-## React Compiler
+Feel free to reach out for collaboration, projects, or any tech discussions:
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+**Email:** vermaabhishekabhi22@gamil.com  
 
-## Expanding the ESLint configuration
+---
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+
+
+## 🌱 Currently Learning
+
+- Advanced **Backend Development**
+- Enhancing skills in **REST APIs** and **Database Management**
+
+---
+
+## 💬 Ask Me About
+
+- Collaboration opportunities  
+- Web development projects  
+- Full-stack development  
+- Tech support and problem-solving  
+
+---
+
+## 😄 Fun Facts
+
+- Love **Gym, Coding, Exploring, and Traveling**  
+- Always experimenting with new **technologies and frameworks**  
+- Aiming to build projects that make a **real-world impact**
+
+---
+
+## 🛠️ Skills & Technologies
+
+- **Frontend:** HTML5, CSS3, JavaScript, React.js, Tailwind CSS  
+- **Backend:** Node.js, Express.js, MongoDB  
+- **Tools & Others:** Git, GitHub, VS Code, REST APIs  
+
+---
+
+## 📂 Portfolio Projects
+
+1. **GlimmerGrid** – Jewellery Inventory Management System  
+2. **[Add More Projects Here]**  
+
+---
+
+## ⚡ Motto
+
+> "Code. Build. Explore. Repeat."
+
+---
+
+## 🌐 Social Links
+
+- **LinkedIn:** [Your LinkedIn URL]  
+- **GitHub:** [https://github.com/YourUsername](https://github.com/YourUsername)  
+- **Portfolio Website:** [Your Portfolio URL]  
+
+---
+
+> This portfolio showcases my skills, projects, and passion for web development.  
+> I’m continuously learning and building projects that solve real-world problems.
