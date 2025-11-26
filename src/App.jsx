@@ -1,14 +1,14 @@
-import React, { useMemo } from "react";
+import React, { useMemo, Suspense } from "react";
 import Navbar from "./components/NavBar.jsx";
 import Home from "./components/Home.jsx";
-import About from "./components/About.jsx";
-import Project from "./components/Project.jsx";
-import Contact from "./components/Contact.jsx";
+const About = React.lazy(() => import("./components/About.jsx"));
+const Project = React.lazy(() => import("./components/Project.jsx"));
+const Contact = React.lazy(() => import("./components/Contact.jsx"));
 
 const App = () => {
-  // Generate bubbles ONCE
+  // Generate bubbles ONCE - Reduced number for performance (from 28 to 14)
   const bubbles = useMemo(() => {
-    return [...Array(28)].map((_, i) => {
+    return [...Array(14)].map((_, i) => {
       const size = 40 + Math.random() * 80;
       const duration = 8 + Math.random() * 12;
       const delay = Math.random() * 8;
@@ -86,15 +86,21 @@ const App = () => {
           <section id="home">
             <Home />
           </section>
-          <section id="about">
-            <About />
-          </section>
-          <section id="projects">
-            <Project />
-          </section>
-          <section id="contact">
-            <Contact />
-          </section>
+          <Suspense fallback={<div className="min-h-screen bg-[#010011]"></div>}>
+            <section id="about">
+              <About />
+            </section>
+          </Suspense>
+          <Suspense fallback={<div className="min-h-screen bg-[#010011]"></div>}>
+            <section id="projects">
+              <Project />
+            </section>
+          </Suspense>
+          <Suspense fallback={<div className="min-h-screen bg-[#010011]"></div>}>
+            <section id="contact">
+              <Contact />
+            </section>
+          </Suspense>
         </div>
       </div>
     </>
