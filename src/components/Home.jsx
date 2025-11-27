@@ -2,8 +2,15 @@ import React, { useMemo } from "react";
 import profileImage from "../assets/profile.jpg";
 import { motion } from "framer-motion";
 
+
+// When you upload a new resume to Google Drive, just change the FILE_ID below
+const RESUME_FILE_ID = "1ScFMlA3JUqIDSqzKhZSOUNL7SJt9TuVO";
+const RESUME_VIEW_URL = `https://drive.google.com/file/d/${RESUME_FILE_ID}/view?usp=sharing`;
+const RESUME_DOWNLOAD_URL = `https://drive.google.com/uc?export=download&id=${RESUME_FILE_ID}`;
+const RESUME_FILENAME = "Abhishek_Verma_Resume.pdf";
+
 const Home = () => {
-  // Generate bubbles once, reduced count (20 → 12) for performance
+  // Generate floating background bubbles (optimized with useMemo)
   const bubbles = useMemo(() => {
     return [...Array(12)].map((_, i) => ({
       id: i,
@@ -14,9 +21,25 @@ const Home = () => {
     }));
   }, []);
 
+  // Reusable Resume Button Click Handler (DRY principle)
+  const handleResumeClick = (e) => {
+    e.preventDefault();
+
+    // 1. Open resume in new tab (Google Drive viewer - clean & professional)
+    window.open(RESUME_VIEW_URL, "_blank");
+
+    // 2. Trigger direct download with custom filename
+    const link = document.createElement("a");
+    link.href = RESUME_DOWNLOAD_URL;
+    link.download = RESUME_FILENAME;
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
+  };
+
   return (
     <main className="relative z-10 flex items-center justify-center min-h-screen px-5 sm:px-8 lg:px-6 py-16 md:py-24 lg:py-32 overflow-hidden">
-      {/* Bubbles - now memoized and reduced */}
+      {/* Floating Bubbles Background */}
       <div className="absolute inset-0 -z-10 pointer-events-none">
         {bubbles.map((bubble) => (
           <div
@@ -38,8 +61,9 @@ const Home = () => {
       </div>
 
       <div className="relative max-w-7xl mx-auto w-full">
-        {/* Mobile Layout */}
+        {/* ====================== MOBILE LAYOUT ====================== */}
         <div className="block md:hidden text-center space-y-6 mt-4">
+          {/* Profile Image */}
           <motion.div
             initial={{ opacity: 0, scale: 0.8 }}
             whileInView={{ opacity: 1, scale: 1 }}
@@ -49,7 +73,7 @@ const Home = () => {
           >
             <div className="relative group inline-block">
               <div className="absolute -inset-2 bg-linear-to-r from-purple-600/20 to-blue-600/20 rounded-full blur-xl opacity-60 group-hover:opacity-90 transition duration-700" />
-              <div className="relative w-40 h-50 rounded-full overflow-hidden border-4 border-gray-800 shadow-xl">
+              <div className="relative w-40 h-47 rounded-full overflow-hidden border-4 border-gray-800 shadow-xl">
                 <img
                   src={profileImage}
                   alt="Abhishek Verma"
@@ -60,68 +84,43 @@ const Home = () => {
             </div>
           </motion.div>
 
-          <motion.p
-            initial={{ opacity: 0, y: 15 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.2 }}
-            className="text-gray-400 font-medium text-sm tracking-wider"
-          >
+          {/* Intro Text */}
+          <motion.p initial={{ opacity: 0, y: 15 }} whileInView={{ opacity: 1, y: 0 }} transition={{ delay: 0.2 }} className="text-gray-400 font-medium text-sm tracking-wider">
             Hello, I'm
           </motion.p>
 
-          <motion.h1
-            initial={{ opacity: 0, y: 15 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.35 }}
-            className="text-3xl font-bold tracking-wide text-white"
-          >
+          <motion.h1 initial={{ opacity: 0, y: 15 }} whileInView={{ opacity: 1, y: 0 }} transition={{ delay: 0.35 }} className="text-3xl font-bold tracking-wide text-white">
             Abhishek Verma
           </motion.h1>
 
-          <motion.p
-            initial={{ opacity: 0, y: 15 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.45 }}
-            className="text-base font-light text-gray-400 italic -mt-4"
-          >
+          <motion.p initial={{ opacity: 0, y: 15 }} whileInView={{ opacity: 1, y: 0 }} transition={{ delay: 0.45 }} className="text-base font-light text-gray-400 italic -mt-4">
             Turning Ideas into Code
           </motion.p>
 
-          <motion.p
-            initial={{ opacity: 0, y: 15 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.55 }}
-            className="text-gray-300 text-sm leading-relaxed max-w-xs mx-auto px-3"
-          >
-            Passionate full-stack developer building fast, modern, responsive
-            web apps.
+          <motion.p initial={{ opacity: 0, y: 15 }} whileInView={{ opacity: 1, y: 0 }} transition={{ delay: 0.55 }} className="text-gray-300 text-sm leading-relaxed max-w-xs mx-auto px-3">
+            Passionate full-stack developer building fast, modern, responsive web apps.
           </motion.p>
 
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.65 }}
-            className="flex items-center justify-center gap-3 pt-4"
-          >
-            <a
-              href="#projects"
-              className="px-4 py-2 bg-gray-800 text-white font-medium text-sm rounded-full border border-gray-700 shadow-md hover:scale-105 transition duration-300"
-            >
+          {/* Action Buttons */}
+          <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} transition={{ delay: 0.65 }} className="flex items-center justify-center gap-3 pt-4">
+            <a href="#projects" className="px-4 py-2 bg-gray-800 text-white font-medium text-sm rounded-full border border-gray-700 shadow-md hover:scale-105 transition duration-300">
               Projects
             </a>
+
+            {/* RESUME BUTTON - MOBILE */}
             <a
-              href="https://drive.google.com/file/d/1ScFMlA3JUqIDSqzKhZSOUNL7SJt9TuVO/view?usp=sharing"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="px-4 py-2 border border-gray-500 text-gray-300 font-medium text-sm rounded-full hover:bg-white/10 hover:text-white transition duration-300"
+              href="#"
+              onClick={handleResumeClick}
+              className="px-4 py-2 border border-gray-500 text-gray-300 font-medium text-sm rounded-full hover:bg-white/10 hover:text-white transition duration-300 cursor-pointer"
             >
               Resume
             </a>
           </motion.div>
         </div>
 
-        {/* Desktop Layout */}
+        {/* ====================== DESKTOP LAYOUT ====================== */}
         <div className="hidden md:grid md:grid-cols-2 gap-12 lg:gap-20 items-center">
+          {/* Left Side - Text Content */}
           <motion.div
             initial={{ opacity: 0, x: -60 }}
             whileInView={{ opacity: 1, x: 0 }}
@@ -129,66 +128,43 @@ const Home = () => {
             transition={{ duration: 0.9 }}
             className="space-y-8"
           >
-            <motion.p
-              initial={{ opacity: 0 }}
-              whileInView={{ opacity: 1 }}
-              transition={{ delay: 0.2 }}
-              className="text-gray-400 font-medium text-xl tracking-wide"
-            >
+            <motion.p initial={{ opacity: 0 }} whileInView={{ opacity: 1 }} transition={{ delay: 0.2 }} className="text-gray-400 font-medium text-xl tracking-wide">
               Hello, I'm
             </motion.p>
 
-            <motion.h1
-              initial={{ opacity: 0 }}
-              whileInView={{ opacity: 1 }}
-              transition={{ delay: 0.4 }}
-              className="text-6xl lg:text-7xl font-bold text-white leading-tight"
-            >
+            <motion.h1 initial={{ opacity: 0 }} whileInView={{ opacity: 1 }} transition={{ delay: 0.4 }} className="text-6xl lg:text-7xl font-bold text-white leading-tight">
               Abhishek Verma
             </motion.h1>
 
-            <motion.p
-              initial={{ opacity: 0 }}
-              whileInView={{ opacity: 1 }}
-              transition={{ delay: 0.6 }}
-              className="text-3xl lg:text-4xl font-light text-gray-400 italic"
-            >
+            <motion.p initial={{ opacity: 0 }} whileInView={{ opacity: 1 }} transition={{ delay: 0.6 }} className="text-3xl lg:text-4xl font-light text-gray-400 italic">
               Turning Ideas into Code
             </motion.p>
 
-            <motion.p
-              initial={{ opacity: 0 }}
-              whileInView={{ opacity: 1 }}
-              transition={{ delay: 0.8 }}
-              className="text-gray-300 text-lg lg:text-xl leading-relaxed max-w-2xl"
-            >
-              Passionate full-stack developer crafting beautiful, responsive,
-              and high-performance web applications with React, Node.js, and
-              modern tools.
+            <motion.p initial={{ opacity: 0 }} whileInView={{ opacity: 1 }} transition={{ delay: 0.8 }} className="text-gray-300 text-lg lg:text-xl leading-relaxed max-w-2xl">
+              Passionate full-stack developer crafting beautiful, responsive, and high-performance web applications with React, Node.js, and modern tools.
             </motion.p>
 
-            <motion.div
-              initial={{ opacity: 0, y: 40 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ delay: 1 }}
-              className="flex flex-row gap-6 pt-8"
-            >
+            {/* Desktop Buttons */}
+            <motion.div initial={{ opacity: 0, y: 40 }} whileInView={{ opacity: 1, y: 0 }} transition={{ delay: 1 }} className="flex flex-row gap-6 pt-8">
               <a
                 href="#projects"
                 className="px-6 py-3 bg-linear-to-r from-gray-700 to-gray-800 text-white font-semibold text-lg rounded-full shadow-md hover:shadow-xl hover:scale-105 transition-all duration-300 border border-gray-600"
               >
                 View Projects
               </a>
+
+              {/* RESUME BUTTON - DESKTOP */}
               <a
-                href="https://drive.google.com/file/d/1ScFMlA3JUqIDSqzKhZSOUNL7SJt9TuVO/view?usp=sharing"
-                target="_blank"
-                className="px-6 py-3 border-2 border-gray-500 text-gray-300 font-semibold text-lg rounded-full hover:bg-white/10 hover:text-white hover:border-gray-400 transition-all duration-300"
+                href="#"
+                onClick={handleResumeClick}
+                className="px-6 py-3 border-2 border-gray-500 text-gray-300 font-semibold text-lg rounded-full hover:bg-white/10 hover:text-white hover:border-gray-400 transition-all duration-300 cursor-pointer"
               >
                 Resume
               </a>
             </motion.div>
           </motion.div>
 
+          {/* Right Side - Profile Image */}
           <motion.div
             initial={{ opacity: 0, scale: 0.9 }}
             whileInView={{ opacity: 1, scale: 1 }}
@@ -211,6 +187,7 @@ const Home = () => {
         </div>
       </div>
 
+      {/* Floating Animation Keyframes */}
       <style jsx>{`
         @keyframes float {
           0% {
