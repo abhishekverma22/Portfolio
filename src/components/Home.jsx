@@ -4,10 +4,11 @@ import { motion } from "framer-motion";
 
 
 // When you upload a new resume to Google Drive, just change the FILE_ID below
-const RESUME_FILE_ID = "1ScFMlA3JUqIDSqzKhZSOUNL7SJt9TuVO";
+const RESUME_FILE_ID = "1Jlc_O1eN0VKue9ZIsXTdG7Pu2sci1kBl";
 const RESUME_VIEW_URL = `https://drive.google.com/file/d/${RESUME_FILE_ID}/view?usp=sharing`;
 const RESUME_DOWNLOAD_URL = `https://drive.google.com/uc?export=download&id=${RESUME_FILE_ID}`;
 const RESUME_FILENAME = "Abhishek_Verma_Resume.pdf";
+
 
 const Home = () => {
   // Generate floating background bubbles (optimized with useMemo)
