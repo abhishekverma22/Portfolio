@@ -14,7 +14,7 @@ const Navbar = ({ scrollToSection }) => {
     {
       name: "Resume",
       type: "external",
-      link: "https://drive.google.com/file/d/1FoIUC4ewNl_3WN96QMl-9VzNMXqF8vZs/view?usp=sharing",
+      link: "https://drive.google.com/file/d/1ScFMlA3JUqIDSqzKhZSOUNL7SJt9TuVO/view?usp=sharing",
     },
   ];
 
