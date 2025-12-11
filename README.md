@@ -61,7 +61,7 @@ Feel free to reach out for collaboration, projects, or any tech discussions:
 
 ## 🌐 Social Links
 
-- **LinkedIn:** [Your LinkedIn URL]  
+- **LinkedIn:** [(https://www.linkedin.com/in/abhishek-verma-mern/)]  
 - **GitHub:** [https://github.com/YourUsername](https://github.com/YourUsername)  
 - **Portfolio Website:** [Your Portfolio URL]  
 
