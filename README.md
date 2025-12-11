@@ -46,12 +46,6 @@ Feel free to reach out for collaboration, projects, or any tech discussions:
 
 ---
 
-## 📂 Portfolio Projects
-
-1. **GlimmerGrid** – Jewellery Inventory Management System  
-2. **[Add More Projects Here]**  
-
----
 
 ## ⚡ Motto
 
