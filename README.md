@@ -46,12 +46,6 @@ Feel free to reach out for collaboration, projects, or any tech discussions:
 
 ---
 
-## 📂 Portfolio Projects
-
-1. **GlimmerGrid** – Jewellery Inventory Management System  
-2. **[Add More Projects Here]**  
-
----
 
 ## ⚡ Motto
 
@@ -61,9 +55,7 @@ Feel free to reach out for collaboration, projects, or any tech discussions:
 
 ## 🌐 Social Links
 
-- **LinkedIn:** [Your LinkedIn URL]  
-- **GitHub:** [https://github.com/YourUsername](https://github.com/YourUsername)  
-- **Portfolio Website:** [Your Portfolio URL]  
+- **LinkedIn:** https://www.linkedin.com/in/abhishek-verma-mern
 
 ---
 
