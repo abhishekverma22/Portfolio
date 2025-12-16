@@ -3,7 +3,7 @@ import { motion, AnimatePresence } from "framer-motion";
 import { Menu, X, Download } from "lucide-react";
 
 // SINGLE SOURCE OF TRUTH — Change only this when you update your resume!
-const RESUME_FILE_ID = "1Jlc_O1eN0VKue9ZIsXTdG7Pu2sci1kBl";
+const RESUME_FILE_ID = "1IA16f2ZVpnq7giorKrvdgaXXcahwn70k";
 const RESUME_VIEW_URL = `https://drive.google.com/file/d/${RESUME_FILE_ID}/view?usp=sharing`;
 const RESUME_DOWNLOAD_URL = `https://drive.google.com/uc?export=download&id=${RESUME_FILE_ID}`;
 const RESUME_FILENAME = "Abhishek_Verma_Resume.pdf";
